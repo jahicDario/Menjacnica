@@ -1,5 +1,7 @@
 package menjacnica;
 
+import java.util.GregorianCalendar;
+
 public class Valuta {
 
 	private String naziv;
@@ -7,6 +9,9 @@ public class Valuta {
 	private double prodajniKurs;
 	private double kupovniKurs;
 	private double srednjiKurs;
+	private GregorianCalendar datum;
+
+	
 
 	public String getNaziv() {
 		return naziv;
@@ -66,6 +71,17 @@ public class Valuta {
 			throw new RuntimeException("Greska prilikom unosa srednjeg kursa.");
 		}else{
 			this.srednjiKurs = srednjiKurs;			
+		}
+	}
+	public GregorianCalendar getDatum() {
+		return datum;
+	}
+
+	public void setDatum(GregorianCalendar datum) {
+		if(datum == null){
+			throw new RuntimeException("Greska prilikom unosa datuma.");
+		}else{
+			this.datum = datum;			
 		}
 	}
 

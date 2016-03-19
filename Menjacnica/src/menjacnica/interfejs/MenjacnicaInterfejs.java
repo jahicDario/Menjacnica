@@ -6,8 +6,8 @@ import menjacnica.Valuta;
 
 public interface MenjacnicaInterfejs {
 
-	public void dodajKursaValute(GregorianCalendar datum);
-	public void brisanjeKursaValuta(GregorianCalendar datum);
+	public void dodavanjeKursaValute(Valuta v);
+	public void brisanjeKursaValuta(Valuta v);
 	public Valuta pronalazenjeKursaValute(GregorianCalendar datum);
 	
 }
