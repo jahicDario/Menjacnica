@@ -48,4 +48,40 @@ public class Valuta {
 		this.srednjiKurs = srednjiKurs;
 	}
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		long temp;
+		temp = Double.doubleToLongBits(kupovniKurs);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		result = prime * result + ((naziv == null) ? 0 : naziv.hashCode());
+		temp = Double.doubleToLongBits(prodajniKurs);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		result = prime * result + ((skraceniNaziv == null) ? 0 : skraceniNaziv.hashCode());
+		temp = Double.doubleToLongBits(srednjiKurs);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if(obj instanceof Valuta){
+			Valuta v = (Valuta) obj;
+			if(v.getNaziv().equals(this.naziv)){
+				return true;
+			}else{
+				return false;
+			}
+		}else{
+			return false;
+		}
+	}
+
+	@Override
+	public String toString() {
+		return "Valuta [naziv=" + naziv + ", skraceniNaziv=" + skraceniNaziv + ", prodajniKurs=" + prodajniKurs
+				+ ", kupovniKurs=" + kupovniKurs + ", srednjiKurs=" + srednjiKurs + "]";
+	}
+
 }
