@@ -2,6 +2,10 @@ package menjacnica;
 
 import java.util.GregorianCalendar;
 
+
+import javax.management.RuntimeErrorException;
+
+
 public class Valuta {
 
 	private String naziv;
@@ -11,7 +15,6 @@ public class Valuta {
 	private double srednjiKurs;
 	private GregorianCalendar datum;
 
-	
 
 	public String getNaziv() {
 		return naziv;
@@ -85,6 +88,7 @@ public class Valuta {
 		}
 	}
 
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -117,8 +121,9 @@ public class Valuta {
 
 	@Override
 	public String toString() {
-		return "Valuta [naziv=" + naziv + ", skraceniNaziv=" + skraceniNaziv + ", prodajniKurs=" + prodajniKurs
-				+ ", kupovniKurs=" + kupovniKurs + ", srednjiKurs=" + srednjiKurs + "]";
+		return "Valuta [naziv = " + naziv + ", skraceni naziv = " + skraceniNaziv + ", prodajni kurs = " + prodajniKurs
+				+ ", kupovni kurs = " + kupovniKurs + ", srednji kurs = " + srednjiKurs + ", datum = " + datum +"]";
 	}
 
+	
 }
