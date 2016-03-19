@@ -13,7 +13,11 @@ public class Valuta {
 	}
 
 	public void setNaziv(String naziv) {
-		this.naziv = naziv;
+		if (naziv == null) {
+			throw new RuntimeException("Greska prilikom unosa naziva");
+		} else {
+			this.naziv = naziv;
+		}
 	}
 
 	public String getSkraceniNaziv() {
@@ -21,7 +25,12 @@ public class Valuta {
 	}
 
 	public void setSkraceniNaziv(String skraceniNaziv) {
-		this.skraceniNaziv = skraceniNaziv;
+		if(skraceniNaziv == null){
+			throw new RuntimeException("Greska prilikom unosa skracenog naziva.");
+		}else{
+			this.skraceniNaziv = skraceniNaziv;			
+		}
+		
 	}
 
 	public double getProdajniKurs() {
@@ -29,7 +38,11 @@ public class Valuta {
 	}
 
 	public void setProdajniKurs(double prodajniKurs) {
-		this.prodajniKurs = prodajniKurs;
+		if(prodajniKurs < 0){
+			throw new RuntimeException("Greska prilikom unosa prodajnog kursa!");
+		}else{			
+			this.prodajniKurs = prodajniKurs;
+		}
 	}
 
 	public double getKupovniKurs() {
@@ -37,7 +50,11 @@ public class Valuta {
 	}
 
 	public void setKupovniKurs(double kupovniKurs) {
-		this.kupovniKurs = kupovniKurs;
+		if(kupovniKurs < 0){
+			throw new RuntimeException("Greska prilikom unosa kupovnog kursa.");
+		}else{
+			this.kupovniKurs = kupovniKurs;	
+		}
 	}
 
 	public double getSrednjiKurs() {
@@ -45,7 +62,11 @@ public class Valuta {
 	}
 
 	public void setSrednjiKurs(double srednjiKurs) {
-		this.srednjiKurs = srednjiKurs;
+		if(srednjiKurs<0){
+			throw new RuntimeException("Greska prilikom unosa srednjeg kursa.");
+		}else{
+			this.srednjiKurs = srednjiKurs;			
+		}
 	}
 
 	@Override
@@ -66,14 +87,14 @@ public class Valuta {
 
 	@Override
 	public boolean equals(Object obj) {
-		if(obj instanceof Valuta){
+		if (obj instanceof Valuta) {
 			Valuta v = (Valuta) obj;
-			if(v.getNaziv().equals(this.naziv)){
+			if (v.getNaziv().equals(this.naziv)) {
 				return true;
-			}else{
+			} else {
 				return false;
 			}
-		}else{
+		} else {
 			return false;
 		}
 	}
