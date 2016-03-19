@@ -1,5 +1,9 @@
 package menjacnica;
 
+import java.util.GregorianCalendar;
+
+import javax.management.RuntimeErrorException;
+
 public class Valuta {
 
 	private String naziv;
@@ -7,6 +11,7 @@ public class Valuta {
 	private double prodajniKurs;
 	private double kupovniKurs;
 	private double srednjiKurs;
+	private GregorianCalendar datum;
 
 	public String getNaziv() {
 		return naziv;
@@ -68,6 +73,18 @@ public class Valuta {
 			this.srednjiKurs = srednjiKurs;			
 		}
 	}
+	public GregorianCalendar getDatum() {
+		return datum;
+	}
+
+	public void setDatum(GregorianCalendar datum) {
+		if(datum == null){
+			throw new RuntimeException("Greska prilikom unosa datuma.");
+		}else{
+			this.datum = datum;			
+		}
+	}
+
 
 	@Override
 	public int hashCode() {
@@ -101,8 +118,9 @@ public class Valuta {
 
 	@Override
 	public String toString() {
-		return "Valuta [naziv=" + naziv + ", skraceniNaziv=" + skraceniNaziv + ", prodajniKurs=" + prodajniKurs
-				+ ", kupovniKurs=" + kupovniKurs + ", srednjiKurs=" + srednjiKurs + "]";
+		return "Valuta [naziv = " + naziv + ", skraceni naziv = " + skraceniNaziv + ", prodajni kurs = " + prodajniKurs
+				+ ", kupovni kurs = " + kupovniKurs + ", srednji kurs = " + srednjiKurs + ", datum = " + datum +"]";
 	}
 
+	
 }
